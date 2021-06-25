@@ -14,10 +14,13 @@ struct CellView: View {
     var body: some View {
         ZStack {
             Color.white
-            HStack {
-                Text(todo?.title ?? "").font(.body).bold().padding(.leading)
-                Spacer()
-                tagView.padding()
+            VStack {
+                HStack {
+                    Text(todo?.title ?? "").font(.body).bold().padding(.leading).padding(.top)
+                    Spacer()
+                    tagView.padding()
+                }
+                Text(todo?.caption ?? "").frame(maxWidth: .infinity, alignment: .leading).foregroundColor(.gray).font(.callout).padding(.leading).padding(.top).padding(.trailing)
             }
         }.cornerRadius(20).shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 0)
     }
