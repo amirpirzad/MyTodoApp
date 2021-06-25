@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct Todo {
+struct Todo: Hashable {
+    var id = UUID().uuidString
     var title: String?
     var caption: String?
     var tag: Tag

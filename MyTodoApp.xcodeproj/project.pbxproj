@@ -15,6 +15,8 @@
 		22523F10268622180040FE3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22523EFA268622180040FE3D /* Assets.xcassets */; };
 		22523F1F268624070040FE3D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F1E268624070040FE3D /* Todo.swift */; };
 		22523F21268624360040FE3D /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F20268624360040FE3D /* Tag.swift */; };
+		22523F23268625630040FE3D /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F22268625630040FE3D /* CellView.swift */; };
+		22523F25268626730040FE3D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F24268626730040FE3D /* TodoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		22523F0A268622180040FE3D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		22523F1E268624070040FE3D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		22523F20268624360040FE3D /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		22523F22268625630040FE3D /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		22523F24268626730040FE3D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				22523EF8268622170040FE3D /* MyTodoAppApp.swift */,
-				22523EF9268622170040FE3D /* ContentView.swift */,
-				22523F1D268623AA0040FE3D /* Controller */,
 				22523F1C268623750040FE3D /* Model */,
 				22523F1A268623260040FE3D /* View */,
 				22523F19268623200040FE3D /* ViewModel */,
+				22523F1D268623AA0040FE3D /* Controller */,
 				22523EFA268622180040FE3D /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -101,6 +104,7 @@
 		22523F19268623200040FE3D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				22523F24268626730040FE3D /* TodoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -108,6 +112,7 @@
 		22523F1A268623260040FE3D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22523F22268625630040FE3D /* CellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		22523F1D268623AA0040FE3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				22523EF9268622170040FE3D /* ContentView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22523F25268626730040FE3D /* TodoViewModel.swift in Sources */,
 				22523F21268624360040FE3D /* Tag.swift in Sources */,
+				22523F23268625630040FE3D /* CellView.swift in Sources */,
 				22523F0D268622180040FE3D /* ContentView.swift in Sources */,
 				22523F1F268624070040FE3D /* Todo.swift in Sources */,
 				22523F0B268622180040FE3D /* MyTodoAppApp.swift in Sources */,

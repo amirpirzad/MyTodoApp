@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    var viewModel = TodoViewModel()
+
     var body: some View {
         VStack {
             Spacer().frame(height: 30)
@@ -16,9 +19,20 @@ struct ContentView: View {
                 Text("MyTodoApp!").font(.largeTitle).bold()
                 Spacer()
             }
-            Spacer()
+            list
         }
+    }
 
+    var list: some View {
+        GeometryReader { geometry in
+            HStack {
+                Spacer()
+                ForEach(viewModel.list(), id: \.id) { todo in
+                    CellView(todo: todo).frame(width: geometry.size.width / 3, height: geometry.size.width / 3).padding()
+                }
+                Spacer()
+            }
+        }
     }
 }
 

@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import SwiftUI
 
 enum Tag {
     case red
 }
 
 extension Tag {
-    func color() -> UIColor {
+    func color() -> Color {
         switch self {
         case .red:
-            return UIColor(red: 255 / 255, green: 0 / 255, blue: 0 / 255, alpha: 1)
+            return Color(red: 255, green: 0, blue: 0)
         }
     }
 }
