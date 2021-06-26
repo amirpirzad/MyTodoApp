@@ -7,10 +7,10 @@
 
 import UIKit
 
-struct Todo: Hashable {
+struct Todo: Identifiable, Hashable {
     var id = UUID().uuidString
     var title: String?
-    var caption: String?
+    var tasks: [Task]?
     var tag: Tag
 }
 

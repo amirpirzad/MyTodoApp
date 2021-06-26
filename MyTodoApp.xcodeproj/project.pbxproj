@@ -17,6 +17,13 @@
 		22523F21268624360040FE3D /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F20268624360040FE3D /* Tag.swift */; };
 		22523F23268625630040FE3D /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F22268625630040FE3D /* CellView.swift */; };
 		22523F25268626730040FE3D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F24268626730040FE3D /* TodoViewModel.swift */; };
+		22523F2726866D620040FE3D /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F2626866D620040FE3D /* TaskView.swift */; };
+		22523F2926866D990040FE3D /* TodoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22523F2826866D990040FE3D /* TodoDetailViewModel.swift */; };
+		22CD2CF32686938E00FD3442 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CF22686938E00FD3442 /* Task.swift */; };
+		22CD2CF5268723E900FD3442 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CF4268723E900FD3442 /* TagView.swift */; };
+		22CD2CF726872DBA00FD3442 /* TaskState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CF626872DBA00FD3442 /* TaskState.swift */; };
+		22CD2CF92687306500FD3442 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CF82687306500FD3442 /* PlusButton.swift */; };
+		22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,13 @@
 		22523F20268624360040FE3D /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		22523F22268625630040FE3D /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		22523F24268626730040FE3D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		22523F2626866D620040FE3D /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		22523F2826866D990040FE3D /* TodoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewModel.swift; sourceTree = "<group>"; };
+		22CD2CF22686938E00FD3442 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		22CD2CF4268723E900FD3442 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		22CD2CF626872DBA00FD3442 /* TaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskState.swift; sourceTree = "<group>"; };
+		22CD2CF82687306500FD3442 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				22523F24268626730040FE3D /* TodoViewModel.swift */,
+				22523F2826866D990040FE3D /* TodoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,6 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				22523F22268625630040FE3D /* CellView.swift */,
+				22CD2CF4268723E900FD3442 /* TagView.swift */,
+				22CD2CF82687306500FD3442 /* PlusButton.swift */,
+				22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +140,8 @@
 			children = (
 				22523F1E268624070040FE3D /* Todo.swift */,
 				22523F20268624360040FE3D /* Tag.swift */,
+				22CD2CF22686938E00FD3442 /* Task.swift */,
+				22CD2CF626872DBA00FD3442 /* TaskState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				22523EF9268622170040FE3D /* ContentView.swift */,
+				22523F2626866D620040FE3D /* TaskView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,11 +252,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CD2CF92687306500FD3442 /* PlusButton.swift in Sources */,
 				22523F25268626730040FE3D /* TodoViewModel.swift in Sources */,
+				22CD2CF5268723E900FD3442 /* TagView.swift in Sources */,
+				22523F2926866D990040FE3D /* TodoDetailViewModel.swift in Sources */,
+				22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */,
 				22523F21268624360040FE3D /* Tag.swift in Sources */,
+				22CD2CF726872DBA00FD3442 /* TaskState.swift in Sources */,
 				22523F23268625630040FE3D /* CellView.swift in Sources */,
+				22523F2726866D620040FE3D /* TaskView.swift in Sources */,
 				22523F0D268622180040FE3D /* ContentView.swift in Sources */,
 				22523F1F268624070040FE3D /* Todo.swift in Sources */,
+				22CD2CF32686938E00FD3442 /* Task.swift in Sources */,
 				22523F0B268622180040FE3D /* MyTodoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +397,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS5B3K7VY5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -390,6 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS5B3K7VY5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

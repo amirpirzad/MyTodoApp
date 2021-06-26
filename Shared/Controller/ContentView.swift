@@ -6,17 +6,28 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
 
-    var viewModel = TodoViewModel()
+    private var viewModel = TodoViewModel()
+
+    private let columns = [
+          GridItem(.flexible()),
+          GridItem(.flexible()),
+      ]
+
+    @State var selectedTodo: Todo?
 
     var body: some View {
         VStack {
-            Spacer().frame(height: 30)
+            Spacer()
+                .frame(height: 30)
             HStack{
                 Spacer()
-                Text("MyTodoApp").font(.largeTitle).bold()
+                Text("MyTodoApp")
+                    .font(.largeTitle)
+                    .bold()
                 Spacer()
             }
             list
@@ -26,37 +37,33 @@ struct ContentView: View {
 
     var list: some View {
         GeometryReader { geometry in
-            HStack {
-                Spacer()
-                ScrollView() {
-                    LazyVStack {
-                        ForEach(viewModel.list(), id: \.id) { todo in
-                            CellView(todo: todo).frame(width: geometry.size.width * 0.8, height: geometry.size.width / 3).padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)).onTapGesture {
-                                print("ShowDetail")
+            ScrollView() {
+                LazyVGrid(columns: columns) {
+                    ForEach(viewModel.list(), id: \.self) { todo in
+                        CellView(todo: todo)
+                            .padding(.top)
+                            .frame(width: geometry.size.width * 0.43, height: 100)
+                            .onTapGesture {
+                                self.selectedTodo = todo
                             }
-                        }
                     }
                 }
-                Spacer()
+                .padding()
+                .fullScreenCover(item: $selectedTodo, content: { item in
+                    TaskView(viewModel: TodoDetailViewModel(todo: item))
+                })
             }
         }
     }
 
     var plusButton: some View {
-        HStack {
-            Spacer()
-            ZStack {
-                Circle().frame(width: 100, height: 100).padding().foregroundColor(Color.black)
-                plusImage
-            }.onTapGesture {
-                print("AddTodo")
+        PlusButton()
+            .onTapGesture {
+                self.selectedTodo = Todo(title: "", tasks: nil, tag: .red)
             }
-            Spacer()
-        }
-    }
-
-    var plusImage: some View {
-        Image(systemName: "plus").font(.system(size: 30)).foregroundColor(.white)
+            .fullScreenCover(item: $selectedTodo, content: { item in
+                TaskView(viewModel: TodoDetailViewModel(todo: item))
+            })
     }
 }
 
