@@ -11,4 +11,5 @@ struct Task: Identifiable, Hashable, Storable {
     var id = UUID().uuidString
     var title: String?
     var state: TaskState
+    var time: Date?
 }

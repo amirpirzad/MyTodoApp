@@ -13,7 +13,7 @@ class TodoRepository {
     static var dbManager: DataManager =  RealmDataManager(RealmProvider.default)
 
     class func list() -> AnyPublisher<[Todo], RealmError> {
-        dbManager.fetch(TodoObject.self, predicate: nil, sorted: nil).map({
+        dbManager.fetch(TodoObject.self, predicate: nil, sorted: Sorted(key: "time", ascending: false)).map({
             var list: [Todo] = []
             for todo in $0 {
                 if let todoObject = Todo.mapToStruct(todo) {

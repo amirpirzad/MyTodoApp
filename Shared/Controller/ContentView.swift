@@ -13,11 +13,12 @@ struct ContentView: View {
     @ObservedObject private var viewModel = TodoViewModel()
 
     private let columns = [
-          GridItem(.flexible()),
-          GridItem(.flexible()),
-      ]
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
 
     @State var selectedTodo: Todo?
+    @State var newTodoIsPresented: Bool = false
 
     var body: some View {
         VStack {
@@ -32,6 +33,9 @@ struct ContentView: View {
             }
             list
             plusButton
+        }
+        .onAppear {
+            viewModel.list()
         }
     }
 
@@ -60,14 +64,11 @@ struct ContentView: View {
     var plusButton: some View {
         PlusButton()
             .onTapGesture {
-                viewModel.add(object: .init(id: UUID().uuidString, title: UUID().uuidString, tasks: [], tag: .red))
-
-//                self.selectedTodo = Todo(title: "", tasks: nil, tag: .red)
+                newTodoIsPresented.toggle()
             }
-//            .fullScreenCover(item: $selectedTodo, content: { item in
-////                TaskView(viewModel: TodoDetailViewModel(todo: item))
-//                viewModel.add(object: .init(id: UUID().uuidString, title: UUID().uuidString, tasks: [], tag: .red))
-//            })
+            .fullScreenCover(isPresented: $newTodoIsPresented, content: {
+                NewTodoView(viewModel: viewModel)
+            })
     }
 }
 

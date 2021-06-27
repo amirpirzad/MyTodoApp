@@ -8,8 +8,8 @@
 import UIKit
 import SwiftUI
 
-enum Tag {
-    case red
+enum Tag: String, CaseIterable, Hashable {
+    case red, yellow, brown, orange, blue, purple
 }
 
 extension Tag {
@@ -17,6 +17,16 @@ extension Tag {
         switch self {
         case .red:
             return Color(red: 255, green: 0, blue: 0)
+        case .yellow:
+            return .yellow
+        case .brown:
+            return Color(.brown)
+        case .orange:
+            return .orange
+        case .blue:
+            return .blue
+        case .purple:
+            return .purple
         }
     }
 }

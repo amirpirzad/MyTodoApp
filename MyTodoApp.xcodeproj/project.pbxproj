@@ -34,6 +34,10 @@
 		22CD2D15268882C800FD3442 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D14268882C800FD3442 /* DataManager.swift */; };
 		22CD2D172688832B00FD3442 /* Sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D162688832B00FD3442 /* Sorted.swift */; };
 		22CD2D192688833E00FD3442 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D182688833E00FD3442 /* RealmError.swift */; };
+		22CD2D1D2688D8F200FD3442 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D1C2688D8F200FD3442 /* MoreButton.swift */; };
+		22CD2D1F2688D94D00FD3442 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D1E2688D94D00FD3442 /* BackButton.swift */; };
+		22CD2D222688DBDA00FD3442 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 22CD2D212688DBDA00FD3442 /* Introspect */; };
+		22CD2D272688E3EF00FD3442 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D262688E3EF00FD3442 /* NewTodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,9 @@
 		22CD2D14268882C800FD3442 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		22CD2D162688832B00FD3442 /* Sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorted.swift; sourceTree = "<group>"; };
 		22CD2D182688833E00FD3442 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		22CD2D1C2688D8F200FD3442 /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
+		22CD2D1E2688D94D00FD3442 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		22CD2D262688E3EF00FD3442 /* NewTodoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CD2D002688798C00FD3442 /* RealmSwift in Frameworks */,
+				22CD2D222688DBDA00FD3442 /* Introspect in Frameworks */,
 				22CD2CFE2688798C00FD3442 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +160,8 @@
 				22CD2CF4268723E900FD3442 /* TagView.swift */,
 				22CD2CF82687306500FD3442 /* PlusButton.swift */,
 				22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */,
+				22CD2D1E2688D94D00FD3442 /* BackButton.swift */,
+				22CD2D1C2688D8F200FD3442 /* MoreButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +184,7 @@
 			children = (
 				22523EF9268622170040FE3D /* ContentView.swift */,
 				22523F2626866D620040FE3D /* TaskView.swift */,
+				22CD2D262688E3EF00FD3442 /* NewTodoView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 			packageProductDependencies = (
 				22CD2CFD2688798C00FD3442 /* Realm */,
 				22CD2CFF2688798C00FD3442 /* RealmSwift */,
+				22CD2D212688DBDA00FD3442 /* Introspect */,
 			);
 			productName = "MyTodoApp (iOS)";
 			productReference = 22523EFF268622180040FE3D /* MyTodoApp.app */;
@@ -308,6 +320,7 @@
 			mainGroup = 22523EF2268622170040FE3D;
 			packageReferences = (
 				22CD2CFC2688798C00FD3442 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				22CD2D202688DBDA00FD3442 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 22523F00268622180040FE3D /* Products */;
 			projectDirPath = "";
@@ -343,8 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CD2D1F2688D94D00FD3442 /* BackButton.swift in Sources */,
 				22CD2CF92687306500FD3442 /* PlusButton.swift in Sources */,
 				22523F25268626730040FE3D /* TodoViewModel.swift in Sources */,
+				22CD2D272688E3EF00FD3442 /* NewTodoView.swift in Sources */,
 				22CD2CF5268723E900FD3442 /* TagView.swift in Sources */,
 				22523F2926866D990040FE3D /* TodoDetailViewModel.swift in Sources */,
 				22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */,
@@ -360,6 +375,7 @@
 				22CD2D15268882C800FD3442 /* DataManager.swift in Sources */,
 				22CD2D0226887A1800FD3442 /* TodoObject.swift in Sources */,
 				22CD2D172688832B00FD3442 /* Sorted.swift in Sources */,
+				22CD2D1D2688D8F200FD3442 /* MoreButton.swift in Sources */,
 				22523F1F268624070040FE3D /* Todo.swift in Sources */,
 				22CD2CF32686938E00FD3442 /* Task.swift in Sources */,
 				22523F0B268622180040FE3D /* MyTodoAppApp.swift in Sources */,
@@ -620,6 +636,14 @@
 				minimumVersion = 10.8.1;
 			};
 		};
+		22CD2D202688DBDA00FD3442 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -632,6 +656,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22CD2CFC2688798C00FD3442 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		22CD2D212688DBDA00FD3442 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CD2D202688DBDA00FD3442 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

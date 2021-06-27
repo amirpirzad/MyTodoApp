@@ -13,6 +13,7 @@ struct Todo: Identifiable, Hashable, Storable {
     var title: String?
     var tasks: [Task]?
     var tag: Tag
+    var time: Date?
 }
 
 extension Todo: MappableProtocol {
@@ -21,11 +22,10 @@ extension Todo: MappableProtocol {
             return nil
         }
  
-        return Todo(id: object.id, title: object.title, tasks: object.tasks, tag: object.tag ?? .red)
+        return Todo(id: object.id, title: object.title, tasks: object.tasks, tag: Tag(rawValue: object.tag ?? "red") ?? .red, time: object.time)
     }
 
     func mapToRealmObject() -> Object {
-        return TodoObject(id: id, title: title, tasks: tasks, tag: tag)
+        return TodoObject(id: id, title: title, tasks: tasks, tag: tag.rawValue, time: time)
     }
-
 }

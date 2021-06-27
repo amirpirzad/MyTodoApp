@@ -17,7 +17,7 @@ struct CellView: View {
             VStack {
                 HStack {
                     Spacer()
-                    TagView(color: todo?.tag.color() ?? .clear)
+                    TagView(color: todo?.tag.color() ?? .clear, isLarge: false)
                         .padding(.trailing)
                         .padding(.top)
                 }

@@ -12,10 +12,6 @@ class TodoViewModel: ObservableObject {
     @Published var todoList: [Todo] = []
     var cancellable: Set<AnyCancellable> = []
 
-    init() {
-        list()
-    }
-
     func list() {
         TodoRepository.list().sink { error in
             print(error)
@@ -25,7 +21,7 @@ class TodoViewModel: ObservableObject {
     }
 
     func add(object: Todo) {
-        todoList.append(object)
+        todoList.insert(object, at: 0)
         guard let object = object.mapToRealmObject() as? TodoObject else {
             return
         }

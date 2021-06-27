@@ -40,14 +40,14 @@ struct TaskView: View {
             }
         }
         .onAppear {
-            print(viewModel.todo)
+            print(viewModel.todo ?? "nil")
         }
     }
 
     var headerView: some View {
         VStack {
             HStack {
-                TagView(color: viewModel.todo?.tag.color() ?? .clear)
+                TagView(color: viewModel.todo?.tag.color() ?? .clear, isLarge: false)
                     .padding(.leading, 30)
                 TextField("Title!", text: $titleTextField)
                     .font(.system(size: 25, weight: .bold, design: .default))
@@ -114,43 +114,29 @@ struct TaskView: View {
     }
 
     var backButton: some View {
-        ZStack {
-            Circle()
-                .frame(width: 50, height: 50)
-                .foregroundColor(Color(UIColor.label))
-            Image(systemName: "chevron.backward")
-                .font(.system(size: 20))
-                .foregroundColor(Color(UIColor.systemBackground))
-        }
-        .onTapGesture {
-            presentationMode.wrappedValue.dismiss()
-        }
-        .padding(.leading)
+        BackButton()
+            .onTapGesture {
+                presentationMode.wrappedValue.dismiss()
+            }
+            .padding(.leading)
     }
 
     var moreButton: some View {
-        ZStack {
-            Circle()
-                .frame(width: 50, height: 50)
-                .foregroundColor(Color(UIColor.label))
-            Image(systemName: "ellipsis")
-                .font(.system(size: 20))
-                .foregroundColor(Color(UIColor.systemBackground))
-        }
-        .onTapGesture {
-            withAnimation {
-                showDeleteDialog = true
+        MoreButton()
+            .onTapGesture {
+                withAnimation {
+                    showDeleteDialog = true
+                }
             }
-        }
-        .padding(.trailing)
-        .actionSheet(isPresented: $showDeleteDialog, content: {
-            ActionSheet(title: Text("Delete All"), message: Text(""), buttons: [
-                .default(Text("Delete")) {
-                    print("delete")
-                },
-                .cancel()
-            ])
-        })
+            .padding(.trailing)
+            .actionSheet(isPresented: $showDeleteDialog, content: {
+                ActionSheet(title: Text("Delete All"), message: Text(""), buttons: [
+                    .default(Text("Delete")) {
+                        print("delete")
+                    },
+                    .cancel()
+                ])
+            })
     }
 
     func showHideTaskActionsView(value: Bool) {
