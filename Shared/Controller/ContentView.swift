@@ -34,7 +34,11 @@ struct ContentView: View {
                     .bold()
                 Spacer()
             }
-            list
+            if viewModel.todoList.count == 0 {
+                emptyView
+            } else {
+                list
+            }
             plusButton
         }
         .onAppear {
@@ -42,6 +46,35 @@ struct ContentView: View {
         }
         .onReceive(reloadDataPublisher, perform: { _ in
             viewModel.list()
+        })
+    }
+
+    var emptyView: some View {
+        return VStack {
+            Spacer()
+                .frame(height: 30)
+            ZStack {
+                Color.white
+                VStack {
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                        .padding(.bottom, 10)
+                    HStack {
+                        Text("Create").bold().foregroundColor(.gray)
+                    }
+                }
+            }
+            .cornerRadius(15)
+            .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 0)
+            Spacer()
+        }
+        .onTapGesture {
+            newTodoIsPresented.toggle()
+        }
+        .fullScreenCover(isPresented: $newTodoIsPresented, content: {
+            NewTodoView(viewModel: viewModel)
         })
     }
 

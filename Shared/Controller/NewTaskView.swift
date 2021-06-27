@@ -20,7 +20,7 @@ struct NewTaskView: View {
             Spacer()
                 .frame(height: 30)
             HStack {
-                TagView(color: .red, isLarge: false)
+                TagView(color: viewModel.todo?.tag.color() ?? .red, isLarge: false)
                     .padding(.leading, 30)
                 TextField("To Do", text: $todoName).font(.system(size: 25, weight: .bold))
                     .padding()
