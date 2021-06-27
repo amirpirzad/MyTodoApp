@@ -26,6 +26,14 @@
 		22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */; };
 		22CD2CFE2688798C00FD3442 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 22CD2CFD2688798C00FD3442 /* Realm */; };
 		22CD2D002688798C00FD3442 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22CD2CFF2688798C00FD3442 /* RealmSwift */; };
+		22CD2D0226887A1800FD3442 /* TodoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D0126887A1800FD3442 /* TodoObject.swift */; };
+		22CD2D0626887AA900FD3442 /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D0526887AA900FD3442 /* TaskObject.swift */; };
+		22CD2D0A26887B4200FD3442 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D0926887B4200FD3442 /* TodoRepository.swift */; };
+		22CD2D0E26887BF400FD3442 /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D0D26887BF400FD3442 /* MappableProtocol.swift */; };
+		22CD2D132688827300FD3442 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D122688827300FD3442 /* RealmProvider.swift */; };
+		22CD2D15268882C800FD3442 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D14268882C800FD3442 /* DataManager.swift */; };
+		22CD2D172688832B00FD3442 /* Sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D162688832B00FD3442 /* Sorted.swift */; };
+		22CD2D192688833E00FD3442 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D182688833E00FD3442 /* RealmError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +56,14 @@
 		22CD2CF626872DBA00FD3442 /* TaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskState.swift; sourceTree = "<group>"; };
 		22CD2CF82687306500FD3442 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		22CD2CFA2687350D00FD3442 /* TaskActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActionsView.swift; sourceTree = "<group>"; };
+		22CD2D0126887A1800FD3442 /* TodoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoObject.swift; sourceTree = "<group>"; };
+		22CD2D0526887AA900FD3442 /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
+		22CD2D0926887B4200FD3442 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
+		22CD2D0D26887BF400FD3442 /* MappableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
+		22CD2D122688827300FD3442 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		22CD2D14268882C800FD3442 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		22CD2D162688832B00FD3442 /* Sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorted.swift; sourceTree = "<group>"; };
+		22CD2D182688833E00FD3442 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +104,8 @@
 				22523F1A268623260040FE3D /* View */,
 				22523F19268623200040FE3D /* ViewModel */,
 				22523F1D268623AA0040FE3D /* Controller */,
-				22523EFA268622180040FE3D /* Assets.xcassets */,
+				22CD2D0F26887F2F00FD3442 /* Data */,
+				22CD2D0726887B2000FD3442 /* Assets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -142,10 +159,12 @@
 		22523F1C268623750040FE3D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22CD2D0426887A6000FD3442 /* Struct */,
 				22523F1E268624070040FE3D /* Todo.swift */,
 				22523F20268624360040FE3D /* Tag.swift */,
 				22CD2CF22686938E00FD3442 /* Task.swift */,
 				22CD2CF626872DBA00FD3442 /* TaskState.swift */,
+				22CD2D0326887A5900FD3442 /* Realm */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +176,67 @@
 				22523F2626866D620040FE3D /* TaskView.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		22CD2D0326887A5900FD3442 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				22CD2D0126887A1800FD3442 /* TodoObject.swift */,
+				22CD2D0526887AA900FD3442 /* TaskObject.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		22CD2D0426887A6000FD3442 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		22CD2D0726887B2000FD3442 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				22523EFA268622180040FE3D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		22CD2D0826887B2700FD3442 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				22CD2D0926887B4200FD3442 /* TodoRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		22CD2D0F26887F2F00FD3442 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				22CD2D112688826500FD3442 /* Realm */,
+				22CD2D1026887F3900FD3442 /* Protocol */,
+				22CD2D0826887B2700FD3442 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		22CD2D1026887F3900FD3442 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				22CD2D0D26887BF400FD3442 /* MappableProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		22CD2D112688826500FD3442 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				22CD2D122688827300FD3442 /* RealmProvider.swift */,
+				22CD2D14268882C800FD3442 /* DataManager.swift */,
+				22CD2D162688832B00FD3442 /* Sorted.swift */,
+				22CD2D182688833E00FD3442 /* RealmError.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,14 +348,22 @@
 				22CD2CF5268723E900FD3442 /* TagView.swift in Sources */,
 				22523F2926866D990040FE3D /* TodoDetailViewModel.swift in Sources */,
 				22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */,
+				22CD2D0A26887B4200FD3442 /* TodoRepository.swift in Sources */,
 				22523F21268624360040FE3D /* Tag.swift in Sources */,
 				22CD2CF726872DBA00FD3442 /* TaskState.swift in Sources */,
+				22CD2D132688827300FD3442 /* RealmProvider.swift in Sources */,
+				22CD2D0626887AA900FD3442 /* TaskObject.swift in Sources */,
 				22523F23268625630040FE3D /* CellView.swift in Sources */,
 				22523F2726866D620040FE3D /* TaskView.swift in Sources */,
+				22CD2D0E26887BF400FD3442 /* MappableProtocol.swift in Sources */,
 				22523F0D268622180040FE3D /* ContentView.swift in Sources */,
+				22CD2D15268882C800FD3442 /* DataManager.swift in Sources */,
+				22CD2D0226887A1800FD3442 /* TodoObject.swift in Sources */,
+				22CD2D172688832B00FD3442 /* Sorted.swift in Sources */,
 				22523F1F268624070040FE3D /* Todo.swift in Sources */,
 				22CD2CF32686938E00FD3442 /* Task.swift in Sources */,
 				22523F0B268622180040FE3D /* MyTodoAppApp.swift in Sources */,
+				22CD2D192688833E00FD3442 /* RealmError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

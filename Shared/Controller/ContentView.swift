@@ -10,7 +10,7 @@ import Combine
 
 struct ContentView: View {
 
-    private var viewModel = TodoViewModel()
+    @ObservedObject private var viewModel = TodoViewModel()
 
     private let columns = [
           GridItem(.flexible()),
@@ -39,10 +39,11 @@ struct ContentView: View {
         GeometryReader { geometry in
             ScrollView() {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.list(), id: \.self) { todo in
+                    ForEach(viewModel.todoList, id: \.self) { todo in
                         CellView(todo: todo)
-                            .padding(.top)
                             .frame(width: geometry.size.width * 0.43, height: 100)
+                            .padding(.top)
+                            .padding(.bottom , 10)
                             .onTapGesture {
                                 self.selectedTodo = todo
                             }
@@ -59,11 +60,14 @@ struct ContentView: View {
     var plusButton: some View {
         PlusButton()
             .onTapGesture {
-                self.selectedTodo = Todo(title: "", tasks: nil, tag: .red)
+                viewModel.add(object: .init(id: UUID().uuidString, title: UUID().uuidString, tasks: [], tag: .red))
+
+//                self.selectedTodo = Todo(title: "", tasks: nil, tag: .red)
             }
-            .fullScreenCover(item: $selectedTodo, content: { item in
-                TaskView(viewModel: TodoDetailViewModel(todo: item))
-            })
+//            .fullScreenCover(item: $selectedTodo, content: { item in
+////                TaskView(viewModel: TodoDetailViewModel(todo: item))
+//                viewModel.add(object: .init(id: UUID().uuidString, title: UUID().uuidString, tasks: [], tag: .red))
+//            })
     }
 }
 

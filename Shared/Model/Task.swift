@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Task: Identifiable, Hashable {
+struct Task: Identifiable, Hashable, Storable {
     var id = UUID().uuidString
     var title: String?
     var state: TaskState

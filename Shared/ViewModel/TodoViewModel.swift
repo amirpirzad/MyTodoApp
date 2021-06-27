@@ -9,7 +9,26 @@ import UIKit
 import Combine
 
 class TodoViewModel: ObservableObject {
-    func list() -> [Todo] {
-        return [Todo(title: "Xitonix Project", tasks: [.init(title: "design", state: .todo), .init(title: "release", state: .done), .init(title: "v2", state: .inProgress)], tag: .red), Todo(title: "TodoApp Project", tasks: [.init(title: "release", state: .todo)], tag: .red)]
+    @Published var todoList: [Todo] = []
+    var cancellable: Set<AnyCancellable> = []
+
+    init() {
+        list()
+    }
+
+    func list() {
+        TodoRepository.list().sink { error in
+            print(error)
+        } receiveValue: { items in
+            self.todoList = items
+        }.store(in: &cancellable)
+    }
+
+    func add(object: Todo) {
+        todoList.append(object)
+        guard let object = object.mapToRealmObject() as? TodoObject else {
+            return
+        }
+        TodoRepository.add(object: object)
     }
 }
