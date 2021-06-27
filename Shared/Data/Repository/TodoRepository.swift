@@ -24,7 +24,37 @@ class TodoRepository {
         }).eraseToAnyPublisher()
     }
 
+    class func get(todo: Todo) -> AnyPublisher<Todo?, RealmError> {
+        return dbManager.fetch(TodoObject.self, predicate: .init(format: "id == %@", todo.id ?? ""), sorted: Sorted(key: "time", ascending: false)).map({
+            if let object = $0.first {
+                return Todo.mapToStruct(object)
+            } else {
+                return nil
+            }
+        }).eraseToAnyPublisher()
+    }
+
     class func add(object: TodoObject) {
-        try? dbManager.create(object: object)
+        do {
+            try dbManager.create(object: object)
+        } catch {
+            print(error)
+        }
+    }
+
+    class func add(object: TaskObject) {
+        do {
+            try dbManager.create(object: object)
+        } catch {
+            print(error)
+        }
+    }
+
+    class func update(object: TodoObject) {
+        do {
+            try dbManager.update(object: object)
+        } catch {
+            print(error, #function)
+        }
     }
 }

@@ -12,6 +12,8 @@ class TodoViewModel: ObservableObject {
     @Published var todoList: [Todo] = []
     var cancellable: Set<AnyCancellable> = []
 
+    private let onAppearSubject = PassthroughSubject<Void, Never>()
+
     func list() {
         TodoRepository.list().sink { error in
             print(error)

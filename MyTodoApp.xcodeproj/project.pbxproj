@@ -38,6 +38,7 @@
 		22CD2D1F2688D94D00FD3442 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D1E2688D94D00FD3442 /* BackButton.swift */; };
 		22CD2D222688DBDA00FD3442 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 22CD2D212688DBDA00FD3442 /* Introspect */; };
 		22CD2D272688E3EF00FD3442 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D262688E3EF00FD3442 /* NewTodoView.swift */; };
+		22CD2D2B2689170300FD3442 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD2D2A2689170300FD3442 /* NewTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		22CD2D1C2688D8F200FD3442 /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		22CD2D1E2688D94D00FD3442 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		22CD2D262688E3EF00FD3442 /* NewTodoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
+		22CD2D2A2689170300FD3442 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				22523EF9268622170040FE3D /* ContentView.swift */,
 				22523F2626866D620040FE3D /* TaskView.swift */,
+				22CD2D2A2689170300FD3442 /* NewTaskView.swift */,
 				22CD2D262688E3EF00FD3442 /* NewTodoView.swift */,
 			);
 			path = Controller;
@@ -362,6 +365,7 @@
 				22CD2D272688E3EF00FD3442 /* NewTodoView.swift in Sources */,
 				22CD2CF5268723E900FD3442 /* TagView.swift in Sources */,
 				22523F2926866D990040FE3D /* TodoDetailViewModel.swift in Sources */,
+				22CD2D2B2689170300FD3442 /* NewTaskView.swift in Sources */,
 				22CD2CFB2687350D00FD3442 /* TaskActionsView.swift in Sources */,
 				22CD2D0A26887B4200FD3442 /* TodoRepository.swift in Sources */,
 				22523F21268624360040FE3D /* Tag.swift in Sources */,

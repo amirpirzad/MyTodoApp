@@ -11,7 +11,7 @@ import UIKit
 class TodoObject: Object {
     @objc dynamic var id: String?
     @objc dynamic var title: String?
-    dynamic var tasks: [Task]?
+    var tasks = List<TaskObject>()
     @objc dynamic var tag: String?
     @objc dynamic var time: Date?
 
@@ -19,7 +19,7 @@ class TodoObject: Object {
         return "id"
     }
 
-    convenience init(id: String?, title: String?, tasks: [Task]?, tag: String, time: Date?) {
+    convenience init(id: String?, title: String?, tasks: List<TaskObject>, tag: String, time: Date?) {
         self.init()
         self.id = id
         self.title = title

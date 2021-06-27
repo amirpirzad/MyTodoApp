@@ -27,7 +27,7 @@ public struct RealmProvider {
     }
 
     // MARK: - Configuration
-    private static let defaultConfig = Realm.Configuration(schemaVersion: 1)
+    private static let defaultConfig = Realm.Configuration(schemaVersion: 2)
     // Can add other configuration here , read from file ,etc ...
 
     // MARK: - Realm Instances

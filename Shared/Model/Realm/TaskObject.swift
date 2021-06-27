@@ -11,7 +11,7 @@ import UIKit
 class TaskObject: Object {
     @objc dynamic var id: String?
     @objc dynamic var title: String?
-    dynamic var state: TaskState = .todo
+    @objc dynamic var state: String?
     @objc dynamic var time: Date?
 
     override static func primaryKey() -> String? {
@@ -22,7 +22,7 @@ class TaskObject: Object {
         self.init()
         self.id = id
         self.title = title
-        self.state = state
+        self.state = state.rawValue
         self.time = time
     }
 }

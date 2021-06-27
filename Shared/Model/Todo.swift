@@ -21,11 +21,27 @@ extension Todo: MappableProtocol {
         guard let object = object as? TodoObject else {
             return nil
         }
+
+        var tasks: [Task] = []
+
+        for taskObject in object.tasks {
+            if let task = Task.mapToStruct(taskObject) {
+                tasks.append(task)
+            }
+        }
  
-        return Todo(id: object.id, title: object.title, tasks: object.tasks, tag: Tag(rawValue: object.tag ?? "red") ?? .red, time: object.time)
+        return Todo(id: object.id, title: object.title, tasks: tasks, tag: Tag(rawValue: object.tag ?? "red") ?? .red, time: object.time)
     }
 
     func mapToRealmObject() -> Object {
-        return TodoObject(id: id, title: title, tasks: tasks, tag: tag.rawValue, time: time)
+        let tasksObject = List<TaskObject>()
+
+        for task in tasks ?? [] {
+            if let task = task.mapToRealmObject() as? TaskObject {
+                tasksObject.append(task)
+            }
+        }
+
+        return TodoObject(id: id, title: title, tasks: tasksObject, tag: tag.rawValue, time: time)
     }
 }

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct TaskView: View {
 
-    var viewModel: TodoDetailViewModel
+    @ObservedObject var viewModel: TodoDetailViewModel
+
+    let reloadDataPublisher = NotificationCenter.default
+        .publisher(for: .init("reloadTaskView"), object: nil)
 
     @Environment(\.presentationMode) var presentationMode
 
+    @State var newTaskIsPresented: Bool = false
     @State private var titleTextField: String = ""
-    @State private var captionTextField: String = ""
     @State var showTaskActionsView: Bool = false
     @State var showDeleteDialog: Bool = false
 
@@ -42,6 +45,13 @@ struct TaskView: View {
         .onAppear {
             print(viewModel.todo ?? "nil")
         }
+        .onDisappear {
+            viewModel.rename(title: titleTextField)
+            NotificationCenter.default.post(.init(name: Notification.Name(rawValue: "reloadContentView")))
+        }
+        .onReceive(reloadDataPublisher, perform: { _ in
+            viewModel.fetchObject()
+        })
     }
 
     var headerView: some View {
@@ -79,7 +89,7 @@ struct TaskView: View {
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
+                            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: -1)
                         HStack {
                             VStack {
                                 HStack {
@@ -111,6 +121,12 @@ struct TaskView: View {
 
     var addButton: some View {
         PlusButton()
+            .onTapGesture {
+                newTaskIsPresented.toggle()
+            }
+            .fullScreenCover(isPresented: $newTaskIsPresented, content: {
+                NewTaskView(viewModel: viewModel)
+            })
     }
 
     var backButton: some View {

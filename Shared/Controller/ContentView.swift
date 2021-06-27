@@ -12,6 +12,9 @@ struct ContentView: View {
 
     @ObservedObject private var viewModel = TodoViewModel()
 
+    let reloadDataPublisher = NotificationCenter.default
+        .publisher(for: .init("reloadContentView"), object: nil)
+
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -37,6 +40,9 @@ struct ContentView: View {
         .onAppear {
             viewModel.list()
         }
+        .onReceive(reloadDataPublisher, perform: { _ in
+            viewModel.list()
+        })
     }
 
     var list: some View {
