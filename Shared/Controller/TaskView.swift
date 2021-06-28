@@ -108,6 +108,7 @@ struct TaskView: View {
                             VStack {
                                 HStack {
                                     Text(task.title ?? "")
+                                        .foregroundColor(.black)
                                     Spacer()
                                 }
                                 HStack {
