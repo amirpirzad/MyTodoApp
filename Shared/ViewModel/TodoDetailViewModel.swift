@@ -47,4 +47,28 @@ class TodoDetailViewModel: ObservableObject {
 
         TodoRepository.update(object: object)
     }
+
+    func update(state: TaskState, task: Task) {
+        if let index = todo?.tasks?.firstIndex(of: task) {
+            todo?.tasks?[index].state = state
+        }
+
+        guard let todo = todo, let object = todo.mapToRealmObject() as? TodoObject else {
+            return
+        }
+
+        TodoRepository.update(object: object)
+
+        NotificationCenter.default.post(.init(name: Notification.Name(rawValue: "dismissTaskActionsView")))
+    }
+
+    func removeAllTasks() {
+        todo?.tasks?.removeAll()
+
+        guard let todo = todo, let object = todo.mapToRealmObject() as? TodoObject else {
+            return
+        }
+
+        TodoRepository.update(object: object)
+    }
 }

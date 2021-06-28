@@ -13,13 +13,18 @@ struct TaskView: View {
 
     let reloadDataPublisher = NotificationCenter.default
         .publisher(for: .init("reloadTaskView"), object: nil)
+    let dismissTaskActionsViewPublisher = NotificationCenter.default
+        .publisher(for: .init("dismissTaskActionsView"), object: nil)
+
 
     @Environment(\.presentationMode) var presentationMode
 
-    @State var newTaskIsPresented: Bool = false
     @State private var titleTextField: String = ""
+
+    @State var newTaskIsPresented: Bool = false
     @State var showTaskActionsView: Bool = false
     @State var showDeleteDialog: Bool = false
+    @State var selectedTask: Task?
 
     var body: some View {
         VStack {
@@ -33,14 +38,20 @@ struct TaskView: View {
             headerView
             list
                 .padding(.top, 5)
-            if showTaskActionsView {
-                TaskActionsView()
+            if showTaskActionsView, let task = selectedTask {
+                TaskActionsView(viewModel: viewModel, task: task)
                     .onTapGesture {
                         showHideTaskActionsView(value: false)
+                    }
+                    .onDisappear {
+                        viewModel.fetchObject()
                     }
             } else {
                 addButton
             }
+        }
+        .onTapGesture {
+            showHideTaskActionsView(value: false)
         }
         .onAppear {
             print(viewModel.todo ?? "nil")
@@ -52,6 +63,9 @@ struct TaskView: View {
         .onReceive(reloadDataPublisher, perform: { _ in
             viewModel.fetchObject()
         })
+        .onReceive(dismissTaskActionsViewPublisher) { _ in
+            showHideTaskActionsView(value: false)
+        }
     }
 
     var headerView: some View {
@@ -106,8 +120,9 @@ struct TaskView: View {
                             }
                             Image(systemName: "ellipsis")
                                 .font(.system(size: 20))
-                                .foregroundColor(Color(UIColor.label))
+                                .foregroundColor(.black)
                                 .onTapGesture {
+                                    selectedTask = task
                                     showHideTaskActionsView(value: true)
                                 }
                         }
@@ -148,7 +163,8 @@ struct TaskView: View {
             .actionSheet(isPresented: $showDeleteDialog, content: {
                 ActionSheet(title: Text("Delete All"), message: Text(""), buttons: [
                     .default(Text("Delete")) {
-                        print("delete")
+                        viewModel.removeAllTasks()
+                        viewModel.fetchObject()
                     },
                     .cancel()
                 ])
