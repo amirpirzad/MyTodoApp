@@ -34,50 +34,47 @@ struct TaskActionsView: View {
 
     var todoButton: some View {
         HStack {
-            Spacer()
             ZStack {
                 Circle()
-                    .frame(width: 100, height: 100)
-                    .padding()
+                    .frame(width: 80, height: 80)
                     .foregroundColor(Color.red)
                 Text("Todo")
+                    .font(.headline)
                     .bold()
                     .foregroundColor(.white)
             }
-            Spacer()
         }
+        .padding(.trailing)
     }
 
     var inProgressButton: some View {
         HStack {
-            Spacer()
             ZStack {
                 Circle()
-                    .frame(width: 100, height: 100)
-                    .padding()
+                    .frame(width: 80, height: 80)
                     .foregroundColor(Color.yellow)
                 Text("InProgress")
+                    .font(.subheadline)
                     .bold()
                     .foregroundColor(.white)
             }
-            Spacer()
         }
+        .padding([.leading, .trailing])
     }
 
     var doneButton: some View {
         HStack {
-            Spacer()
             ZStack {
                 Circle()
-                    .frame(width: 100, height: 100)
-                    .padding()
+                    .frame(width: 80, height: 80)
                     .foregroundColor(Color.green)
                 Text("Done")
+                    .font(.headline)
                     .bold()
                     .foregroundColor(.white)
             }
-            Spacer()
         }
+        .padding([.leading])
     }
 }
 
